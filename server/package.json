@@ -20,6 +20,6 @@
   "scripts": {
     "build": "tsc",
     "start": "node lib/server.js",
-    "dev": "tsnd --respawn --cls --rs server.ts"
+    "dev": "tsnd --respawn --rs server.ts"
   }
 }

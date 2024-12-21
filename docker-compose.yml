@@ -4,10 +4,17 @@ services:
       context: ./client
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend:/app
     depends_on:
       - backend
+    develop:
+      watch:
+        - action: sync
+          path: ./client
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
     networks:
       - crm-network
 
@@ -16,10 +23,17 @@ services:
       context: ./server
     ports:
       - "5000:5000"
-    volumes:
-      - ./backend:/app
     depends_on:
       - mongo
+    develop:
+      watch:
+        - action: sync
+          path: ./server
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
     networks:
       - crm-network
 
