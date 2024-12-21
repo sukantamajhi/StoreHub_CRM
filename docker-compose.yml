@@ -1,55 +1,55 @@
 services:
-  frontend:
-    build:
-      context: ./client
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    develop:
-      watch:
-        - action: sync
-          path: ./client
-          target: /app
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: package.json
-    networks:
-      - crm-network
+    frontend:
+        build:
+            context: ./client
+        ports:
+            - '3000:3000'
+        depends_on:
+            - backend
+        develop:
+            watch:
+                - action: sync
+                  path: ./client
+                  target: /app
+                  ignore:
+                      - node_modules/
+                - action: rebuild
+                  path: package.json
+        networks:
+            - crm-network
 
-  backend:
-    build:
-      context: ./server
-    ports:
-      - "5000:5000"
-    depends_on:
-      - mongo
-    develop:
-      watch:
-        - action: sync
-          path: ./server
-          target: /app
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: package.json
-    networks:
-      - crm-network
+    backend:
+        build:
+            context: ./server
+        ports:
+            - '5000:5000'
+        depends_on:
+            - mongo
+        develop:
+            watch:
+                - action: sync
+                  path: ./server
+                  target: /app
+                  ignore:
+                      - node_modules/
+                - action: rebuild
+                  path: package.json
+        networks:
+            - crm-network
 
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb-data:/data/db
-    networks:
-      - crm-network
+    mongo:
+        image: mongo:latest
+        ports:
+            - '27017:27017'
+        volumes:
+            - mongodb-data:/data/db
+        networks:
+            - crm-network
 
 networks:
-  crm-network:
-    driver: bridge
+    crm-network:
+        driver: bridge
 
 volumes:
-  mongodb-data:
-    driver: local
+    mongodb-data:
+        driver: local
