@@ -2,7 +2,7 @@
 	"name": "server",
 	"version": "1.0.0",
 	"description": "This is a E-commerce CRM system using Node.js + Express.js. This CRM system would integrate customer relationship management (CRM) with e-commerce functionalities such as product management, order tracking, customer management, inventory management, and other key features found in systems.",
-	"main": "lib/server.js",
+	"main": "build/server.js",
 	"author": "Sukanta Majhi<sukantamajhi799@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
