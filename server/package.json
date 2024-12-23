@@ -19,7 +19,7 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"start": "node lib/server.js",
+		"start": "node build/server.js",
 		"dev": "tsnd --respawn --rs server.ts",
 		"prettier-format": "prettier '**/*.ts' --write"
 	}
