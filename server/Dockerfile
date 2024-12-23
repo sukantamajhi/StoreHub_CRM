@@ -16,8 +16,6 @@ COPY . .
 # Build
 RUN npm run build
 
-# Copy the source code to the container
-
 # Expose the port the backend app runs on (default for Express)
 EXPOSE 5000
 

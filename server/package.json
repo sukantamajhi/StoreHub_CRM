@@ -22,5 +22,9 @@
 		"start": "node build/server.js",
 		"dev": "tsnd --respawn --rs server.ts",
 		"prettier-format": "prettier '**/*.ts' --write"
-	}
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"packageManager": "yarn@1.22.21"
 }

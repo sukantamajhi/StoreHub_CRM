@@ -1,7 +1,6 @@
 node_modules/
 tsconfig.json
 yarn.lock
-package.json
 package-lock.json
 .github
 .cache
@@ -34,6 +33,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+node_modules
+dist
+.next
+public
 
 # typescript
 *.tsbuildinfo
