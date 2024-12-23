@@ -1,9 +1,15 @@
 {
   "dependencies": {
+    "pre-commit": "^1.2.2",
     "prettier": "^3.4.2"
   },
   "devDependencies": {},
   "scripts": {
+    "dev": "docker-compose up --watch",
+    "build": "docker-compose up --build -d",
     "lint": "prettier . --write"
-  }
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
