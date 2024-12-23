@@ -36,7 +36,7 @@
 
 ---
 
-## 📋 **Checklist**
+## 📋 **Checklist (Replace `[ ]` with `[x]` that meets the specified criteria.)**
 Please ensure the following before submitting:
 - [ ] Code follows the project's coding standards
 - [ ] Relevant tests have been added or updated
