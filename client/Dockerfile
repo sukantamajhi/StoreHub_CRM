@@ -14,17 +14,6 @@ COPY . .
 # Step 5: Build the Next.js app
 RUN npm run build
 
-# Step 6: Start a production server
-FROM node:18
-
-WORKDIR /app
-
-# Copy the built Next.js app and node_modules
-COPY --from=builder /app ./
-
-# Install production dependencies
-RUN npm install --production
-
 # Expose the port Next.js will run on
 EXPOSE 3000
 

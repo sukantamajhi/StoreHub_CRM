@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "prettier": "^3.4.2"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
