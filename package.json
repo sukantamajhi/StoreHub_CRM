@@ -1,8 +1,13 @@
 {
   "dependencies": {
+    "pre-push": "^0.1.4",
     "prettier": "^3.4.2"
   },
-  "devDependencies": {
-    "husky": "^9.1.7"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "lint": "prettier . --write"
+  },
+  "pre-push": [
+    "lint"
+  ]
 }
