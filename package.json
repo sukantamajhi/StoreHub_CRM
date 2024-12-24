@@ -6,12 +6,11 @@
 	"devDependencies": {},
 	"scripts": {
 		"dev": "docker-compose up --watch",
-		"build": "docker-compose --build",
+		"start": "docker-compose up --build -d",
 		"stop-all": "docker-compose down",
 		"lint": "prettier . --write",
 		"docker-images": "docker ps",
 		"docker-logs": "node -e \"require('child_process').execSync('docker logs ' + process.argv[1] + ' --follow', {stdio: 'inherit'})\"",
-		"start": "docker-compose up -d",
 		"clean": "docker-compose down -v && docker system prune -f"
 	},
 	"engines": {
