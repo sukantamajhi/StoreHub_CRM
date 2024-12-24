@@ -5,7 +5,7 @@
 	"devDependencies": {},
 	"scripts": {
 		"dev": "docker-compose up --watch",
-		"build": "docker-compose up --build -d",
+		"build": "docker-compose --build",
 		"stop-all": "docker-compose down",
 		"lint": "prettier . --write",
 		"docker-images": "docker ps",

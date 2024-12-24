@@ -4,16 +4,16 @@ FROM node:18-alpine
 # Set the working directory
 WORKDIR /app
 
-# Copy the package.json and package-lock.json (or yarn.lock)
+# Copy package.json first to leverage Docker cache
 COPY package.json ./
 
-# Install dependencies
-RUN npm install
+# Install only production dependencies (since this will be a production build)
+RUN npm install --production
 
-# Step 4: Copy the rest of the application
+# Copy the rest of the application code
 COPY . .
 
-# Build
+# Build the application (if applicable)
 RUN npm run build
 
 # Expose the port the backend app runs on (default for Express)
