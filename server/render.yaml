@@ -9,14 +9,6 @@ services:
         ports:
             - 5000
         command: npm run dev
-        watch:
-            - action: sync
-              path: ./server
-              target: /app
-              ignore:
-                  - node_modules/
-            - action: rebuild
-              path: package.json
         env_variables:
             # Add any environment variables needed for the backend service
             # Example:
