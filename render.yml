@@ -1,0 +1,71 @@
+services:
+  frontend:
+    type: web
+    name: frontend
+    env: node
+    build:
+      source: ./client
+    plan: free  # or specify your plan (e.g., basic, pro, etc.)
+    ports:
+      - 3000
+    command: npm run dev
+    watch:
+      - action: sync
+        path: ./client
+        target: /app
+        ignore:
+          - node_modules/
+      - action: rebuild
+        path: package.json
+    env_variables:
+      # Add any environment variables needed for the frontend service
+      # Example: 
+      REACT_APP_API_URL: "http://backend:5000"
+    networks:
+      - crm-network
+    depends_on:
+      - backend
+
+  backend:
+    type: web
+    name: backend
+    env: node
+    build:
+      source: ./server
+    plan: free  # or specify your plan (e.g., basic, pro, etc.)
+    ports:
+      - 5000
+    command: npm run dev
+    watch:
+      - action: sync
+        path: ./server
+        target: /app
+        ignore:
+          - node_modules/
+      - action: rebuild
+        path: package.json
+    env_variables:
+      # Add any environment variables needed for the backend service
+      # Example: 
+      MONGO_URI: "mongodb://mongo:27017"
+    networks:
+      - crm-network
+    depends_on:
+      - mongo
+
+  mongo:
+    type: db
+    name: mongo
+    env: mongo
+    plan: free  # or specify your plan (e.g., basic, pro, etc.)
+    db_name: crm-database  # The name of your MongoDB database
+    networks:
+      - crm-network
+
+networks:
+  crm-network:
+    # Render automatically handles networking between services within the same app, so this section may not be necessary.
+
+volumes:
+  mongodb-data:
+    driver: local  # Render handles persistent storage for databases automatically
