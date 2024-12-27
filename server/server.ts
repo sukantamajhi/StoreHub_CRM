@@ -1,7 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
+require('dotenv').config();
+
 const app = express();
+
+console.log(process.env.MONGO_URI, '<<-- process.env.MONGO_URI');
 
 mongoose
 	.connect(process.env.MONGO_URI as string)
