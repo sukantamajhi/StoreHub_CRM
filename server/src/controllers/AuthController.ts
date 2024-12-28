@@ -9,7 +9,7 @@ export default {
 			return res.status(201).json(user);
 		} catch (error: any) {
 			console.error(error, '<<-- Error in registering user');
-			return res.status(400).json({  error: error.message || error });
+			return res.status(400).json({ error: error.message || error });
 		}
 	},
 	login: async (req: Request, res: Response): Promise<any> => {

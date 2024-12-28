@@ -1,7 +1,7 @@
-import { Request } from "express";
+import { Request } from 'express';
 
 interface IRequest extends Request {
-    headers: {
-        authorization: string;
-    }
+	headers: {
+		authorization: string;
+	};
 }

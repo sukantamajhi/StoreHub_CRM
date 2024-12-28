@@ -17,4 +17,5 @@ RUN npm run build
 EXPOSE 5000
 
 # Start the Node.js app
-CMD ["npm", "start"]
+# Check if the environment is set to 'development' or 'production' and set the correct command
+CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"production\" ]; then npm start; else npm run dev; fi"]

@@ -15,4 +15,5 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the application in production mode
-CMD ["npm", "start"]
+# Check if the environment is set to 'development' or 'production' and set the correct command
+CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"production\" ]; then npm start; else npm run dev; fi"]
