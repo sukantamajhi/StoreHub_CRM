@@ -1,12 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import router from './src/routes/router';
+import errorMiddleware from './src/middleware/ErrorMiddleware';
 
 require('dotenv').config();
 
 const app = express();
+app.use(express.json());
 
-console.log(process.env.MONGO_URI, '<<-- process.env.MONGO_URI');
-
+// Connect to mongodb
 mongoose
 	.connect(process.env.MONGO_URI as string)
 	.then(() => {
@@ -16,10 +18,15 @@ mongoose
 		console.error(err, '<<-- Error in connecting with database');
 	});
 
+// Home route
 app.get('/', (req, res) => {
 	res.send('Hello world from server');
 });
 
-app.listen(5000, () => {
+// Routes
+app.use('/api', router);
+
+// Start server
+app.listen((process.env.PORT as string) || 5000, () => {
 	console.log('Running on port 5000');
 });
